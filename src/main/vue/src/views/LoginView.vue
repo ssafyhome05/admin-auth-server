@@ -51,9 +51,8 @@ export default {
           },
           withCredentials: true
         })
-
-        if (response.status === 200) {
-          this.$router.push('/')
+        if(response.status == 200) {
+          location.href = 'http://localhost:9000/oauth2/authorize?response_type=code&client_id=admin&scope=profile&redirect_uri=http://localhost:8080/login/oauth2/code/admin';
         }
       } catch (error) {
         console.error('로그인 실패:', error)

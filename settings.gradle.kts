@@ -1,1 +1,1 @@
-rootProject.name = "oauth2admin"
+rootProject.name = "oauth2adminAuth"

@@ -2,7 +2,6 @@ package com.oauth2admin.controller;
 
 import com.oauth2admin.entity.AdminEntity;
 import com.oauth2admin.service.AdminService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 

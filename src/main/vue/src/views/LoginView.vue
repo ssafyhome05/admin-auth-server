@@ -1,13 +1,13 @@
 <template>
   <div class="login">
     <h2>로그인</h2>
-    <form @submit.prevent="handleLogin">
+    <form action="/login" method="post">
       <div class="form-group">
         <label for="username">아이디:</label>
         <input 
           type="text" 
           id="username" 
-          v-model="username" 
+          name="username" 
           required
         >
       </div>
@@ -17,7 +17,7 @@
         <input 
           type="password" 
           id="password" 
-          v-model="password" 
+          name="password" 
           required
         >
       </div>
@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'LoginComponent',
   data() {
@@ -38,28 +36,6 @@ export default {
       password: ''
     }
   },
-  methods: {
-    async handleLogin() {
-      try {
-        const params = new URLSearchParams()
-        params.append('username', this.username)
-        params.append('password', this.password)
-
-        const response = await axios.post('/api/login', params, {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          withCredentials: true
-        })
-        if(response.status == 200) {
-          location.href = 'http://localhost:9000/oauth2/authorize?response_type=code&client_id=admin&scope=profile&redirect_uri=http://localhost:8080/login/oauth2/code/admin';
-        }
-      } catch (error) {
-        console.error('로그인 실패:', error)
-        alert('로그인에 실패했습니다.')
-      }
-    }
-  }
 }
 </script>
 

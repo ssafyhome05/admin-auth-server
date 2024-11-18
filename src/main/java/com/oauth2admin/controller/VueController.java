@@ -1,14 +1,23 @@
 package com.oauth2admin.controller;
 
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class VueController implements ErrorController {
+public class VueController {
 
-	@GetMapping("/error")
-	public String error() {
+	@GetMapping("/login")
+	public String login() {
+		return "/index.html";
+	}
+
+	@GetMapping("/signup")
+	public String signup() {
+		return "/index.html";
+	}
+
+	@GetMapping("/oauth2/consent")
+	public String consent() {
 		return "/index.html";
 	}
 }

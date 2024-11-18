@@ -1,43 +1,59 @@
 <template>
-  <div class="signup">
-    <h2>회원가입</h2>
-    <form @submit.prevent="handleSignup">
-      <div class="form-group">
-        <label for="password">비밀번호:</label>
-        <input 
-          type="password" 
-          id="password" 
-          v-model="password" 
-          required
-        >
-      </div>
+  <div class="signup-container">
+    <div class="header">
+      <h1>관리자 권한 신청</h1>
+    </div>
 
-      <div class="form-group">
-        <label for="confirmPassword">비밀번호 확인:</label>
-        <input 
-          type="password" 
-          id="confirmPassword" 
-          v-model="confirmPassword" 
-          required
-        >
-      </div>
+    <div class="content-section">
+      <form @submit.prevent="handleSignup" class="signup-form">
+        <div class="form-group">
+          <label for="password">비밀번호</label>
+          <input 
+            type="password" 
+            id="password" 
+            v-model="password" 
+            required
+            placeholder="비밀번호를 입력하세요"
+          >
+        </div>
 
-      <div class="form-group">
-        <label for="role">권한:</label>
-        <select 
-          id="role" 
-          v-model="role" 
-          required
-        >
-          <option value="">권한을 선택하세요</option>
-          <option value="ADMIN">관리자</option>
-          <option value="MANAGER">매니저</option>
-          <option value="USER">일반 사용자</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label for="confirmPassword">비밀번호 확인</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            v-model="confirmPassword" 
+            required
+            placeholder="비밀번호를 다시 입력하세요"
+          >
+        </div>
 
-      <button type="submit">회원가입</button>
-    </form>
+        <div class="form-group">
+          <label for="role">권한</label>
+          <select 
+            id="role" 
+            v-model="role" 
+            required
+          >
+            <option value="">권한을 선택하세요</option>
+            <option value="ADMIN">관리자</option>
+            <option value="MANAGER">매니저</option>
+            <option value="USER">일반 사용자</option>
+          </select>
+        </div>
+
+        <button type="submit" class="primary-button">관리자 권한 신청</button>
+      </form>
+
+      <div class="notice-box">
+        <p>⚠️ 모든 필드를 정확히 입력해주세요.</p>
+        <p>비밀번호는 안전하게 암호화되어 저장됩니다.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 OAuth2 Admin. All rights reserved.</p>
+    </div>
   </div>
 </template>
 
@@ -75,38 +91,5 @@ export default {
 </script>
 
 <style scoped>
-.signup {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3aa876;
-}
+/* 회원가입 페이지 고유 스타일만 남김 */
 </style>
